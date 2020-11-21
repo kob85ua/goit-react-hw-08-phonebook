@@ -3,13 +3,13 @@ import styled from "styled-components";
 const AppWrapper = styled.div`
   font-family: "Arial";
   font-size: 18px;
-  width: 450px;
+  width: 520px;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 
   margin: auto;
-  /* padding-inline-start: 0; */
-  /* border: 2px grey solid; */
+  margin-top: 40px;
+
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@ const InputBlockWrapper = styled.div`
 const InputBlockStyled = styled.form`
   width: 100%;
   display: flex;
-  /* height: 120px; */
+
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
@@ -50,7 +50,7 @@ const Input = styled.input`
   border: 1px grey solid;
   height: 35px;
   border-radius: 5px;
-  width: 98%;
+  width: 100%;
   /* & :focus {
     border: 2px #3f51b5 solid;
   } */

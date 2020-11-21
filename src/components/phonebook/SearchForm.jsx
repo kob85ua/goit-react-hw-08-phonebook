@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import phonebookActions from "../../redux/phonebook/phonebookActions";
-import phonebookSelectors from "../../redux/phonebook/phonebookSelectors";
+
+import { phonebookActions, phonebookSelectors } from "../../redux/phonebook";
 import { Input, InputBlockWrapper, Label, InputNames } from "../Styles/Styles";
 const SearchForm = ({ value, onFindContacts }) => {
   return (

@@ -11,18 +11,18 @@
   margin-bottom: 20px;
 }
 .list-item-fade-enter {
-  transform: translateX(-100%);
+  transform: scale(0.1);
 }
 
 .list-item-fade-enter-active {
-  transform: translateX(0);
+  transform: scale(1);
   transition: transform 250ms linear;
 }
 
 .list-item-fade-exit {
-  transform: translateX(0);
+  transform: scale(1);
 }
 .list-item-fade-exit-active {
-  transform: translateX(-100%);
+  transform: scale(0.1);
   transition: transform 250ms linear;
 }

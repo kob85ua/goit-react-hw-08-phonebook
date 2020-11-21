@@ -1,17 +1,23 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import authOperations  from "../../redux/auth/authOperations";
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: 15,
-  },
-};
+import { connect } from "react-redux";
+
+import { CSSTransition } from "react-transition-group";
+import { authOperations } from "../../redux/auth";
+
+import {
+  InputBlockWrapper,
+  Label,
+  Input,
+  InputBlockStyled,
+  InputNames,
+  AppWrapper,
+  Header,
+} from "../Styles/Styles";
+
+import Btn from "../AddButton/StyledBtn";
+
+import "../Styles/transitionR.css";
 
 class RegisterView extends Component {
   state = {
@@ -27,62 +33,68 @@ class RegisterView extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    this.props.onRegister({...this.state});
+    this.props.onRegister({ ...this.state });
 
-    // this.setState({ name: "", email: "", password: "" });
+    this.setState({ name: "", email: "", password: "" });
   };
 
   render() {
     const { name, email, password } = this.state;
 
     return (
-      <div>
-        <h1>Register Page</h1>
+      <AppWrapper>
+        <InputBlockWrapper>
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={500}
+            classNames="fadeHeader"
+            unmountOnExit
+          >
+            <Header>Register page</Header>
+          </CSSTransition>
 
-        <form
-          onSubmit={this.handleSubmit}
-          style={styles.form}
-          autoComplete="off"
-        >
-          <label style={styles.label}>
-            Login
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={this.handleChange}
-            />
-          </label>
+          <InputBlockStyled onSubmit={this.handleSubmit} autoComplete="off">
+            <Label>
+              <InputNames>Login</InputNames>
+              <Input
+                type="text"
+                name="name"
+                value={name}
+                onChange={this.handleChange}
+              />
+            </Label>
 
-          <label style={styles.label}>
-            Email
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-            />
-          </label>
+            <Label>
+              <InputNames>Email</InputNames>
+              <Input
+                type="email"
+                name="email"
+                value={email}
+                onChange={this.handleChange}
+              />
+            </Label>
 
-          <label style={styles.label}>
-            Password
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-            />
-          </label>
+            <Label>
+              <InputNames>Password</InputNames>
+              <Input
+                type="password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+              />
+            </Label>
 
-          <button type="submit">Register</button>
-        </form>
-      </div>
+            <Btn type="submit">Register</Btn>
+          </InputBlockStyled>
+        </InputBlockWrapper>
+      </AppWrapper>
     );
   }
 }
 
-// const mapDispatchToProps = {
-//   onRegister: authOperations.register,
-// };
+const mapDispatchToProps = {
+  onRegister: authOperations.register,
+};
 
-export default connect(null, {onRegister: authOperations.register})(RegisterView);
+export default connect(null, mapDispatchToProps)(RegisterView);

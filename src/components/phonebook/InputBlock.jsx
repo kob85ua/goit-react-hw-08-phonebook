@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 
-import phonebookActions from "../../redux/phonebook/phonebookActions";
-import phonebookOperations from "../../redux/phonebook/phonebookOperations";
-import phonebookSelectors from "../../redux/phonebook/phonebookSelectors";
+import {
+  phonebookOperations,
+  phonebookSelectors,
+  phonebookActions,
+} from "../../redux/phonebook";
+
 import WarningItem from "../Warning/Warning";
 
 import "../Styles/warningFade.css";

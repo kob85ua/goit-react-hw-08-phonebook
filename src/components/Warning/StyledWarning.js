@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledWarning = styled.div`
   position: absolute;
   left: 50%;
-  top: 35px;
+  top: 170px;
   padding: 0;
   border-radius: 3px;
   background-color: #ff2400;

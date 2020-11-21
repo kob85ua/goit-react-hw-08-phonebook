@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import phonebookSelectors from "../../redux/phonebook/phonebookSelectors";
-import phonebookOperations from "../../redux/phonebook/phonebookOperations";
+
+import { phonebookSelectors } from "../../redux/phonebook";
 import ContactItem from "./ContactItem";
 import LoaderBlock from "../Loader/Loader";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
@@ -9,9 +9,6 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "../Styles/listTransition.css";
 
 class ContactList extends Component {
-  componentDidMount() {
-    this.props.onFetchContacts();
-  }
   render() {
     const { isLoadingContacts, contactsLength, contacts } = this.props;
     return (
@@ -37,8 +34,4 @@ const mapStateToProps = (state) => ({
   isLoadingContacts: phonebookSelectors.getLoadingContacts(state),
 });
 
-const mapDispatchToProps = {
-  onFetchContacts: phonebookOperations.fetchContacts,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default connect(mapStateToProps)(ContactList);

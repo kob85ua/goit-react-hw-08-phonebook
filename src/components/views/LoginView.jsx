@@ -1,17 +1,22 @@
 import React, { Component } from "react";
+import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
-import { authOperations } from "../redux/auth";
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: 15,
-  },
-};
+import { authOperations } from "../../redux/auth";
+
+import {
+  InputBlockWrapper,
+  Label,
+  Input,
+  InputBlockStyled,
+  InputNames,
+  AppWrapper,
+  Header,
+} from "../Styles/Styles";
+
+import Btn from "../AddButton/StyledBtn";
+
+import "../Styles/transitionR.css";
 
 class LoginView extends Component {
   state = {
@@ -35,37 +40,42 @@ class LoginView extends Component {
     const { email, password } = this.state;
 
     return (
-      <div>
-        <h1>Login page</h1>
+      <AppWrapper>
+        <InputBlockWrapper>
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={500}
+            classNames="fadeHeader"
+            unmountOnExit
+          >
+            <Header>Login page</Header>
+          </CSSTransition>
+          <InputBlockStyled onSubmit={this.handleSubmit} autoComplete="off">
+            <Label>
+              <InputNames>Email</InputNames>
+              <Input
+                type="email"
+                name="email"
+                value={email}
+                onChange={this.handleChange}
+              />
+            </Label>
 
-        <form
-          onSubmit={this.handleSubmit}
-          style={styles.form}
-          autoComplete="off"
-        >
-          <label style={styles.label}>
-            Email
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-            />
-          </label>
+            <Label>
+              <InputNames>Password</InputNames>
+              <Input
+                type="password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+              />
+            </Label>
 
-          <label style={styles.label}>
-            Password
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-            />
-          </label>
-
-          <button type="submit">Login</button>
-        </form>
-      </div>
+            <Btn type="submit">Login</Btn>
+          </InputBlockStyled>
+        </InputBlockWrapper>
+      </AppWrapper>
     );
   }
 }

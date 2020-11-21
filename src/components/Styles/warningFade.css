@@ -1,17 +1,21 @@
 .warning-item-fade-enter {
-  transform: translateX(100%);
+  /* transform: translateX(100%); */
+  transform: scale(0.1);
 }
 
 .warning-item-fade-enter-active {
-  transform: translateX(0);
+  /* transform: translateX(0); */
+  transform: scale(1);
 
   transition: transform 250ms linear;
 }
 
 .warning-item-fade-exit {
-  transform: translateX(0);
+  /* transform: translateX(0); */
+  transform: scale(1);
 }
 .warning-item-fade-exit-active {
-  transform: translateX(100%);
+  /* transform: translateX(100%); */
+  transform: scale(0.1);
   transition: transform 250ms linear;
 }

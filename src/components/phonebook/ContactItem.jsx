@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import phonebookOperations from "../../redux/phonebook/phonebookOperations";
-import phonebookSelectors from "../../redux/phonebook/phonebookSelectors";
+import { phonebookOperations, phonebookSelectors } from "../../redux/phonebook";
 
 import { ListItem, ContactInfo } from "../Styles/Styles";
 import CrossButton from "../CrossButton/CrossButton";
